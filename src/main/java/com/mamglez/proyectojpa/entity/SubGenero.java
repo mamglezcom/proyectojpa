@@ -7,39 +7,51 @@ import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 
 /**
  * @author skype
- *representa el entity mapea tabla disquera
+ *
  */
 @Entity
-@Table(name="disquera")
-public class Disquera {
-	
+@Table(name="subgenero")
+public class SubGenero {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="idDisquera")
-	private Long idDisquera;
+	private Long idSubgenero;
+	
 	@Column(name="descripcion")
 	private String descripcion;
+	
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name="idGenero")
+	@Cascade(CascadeType.REMOVE)
+	private Genero genero;
+	
 	private LocalDateTime fechaCreacion;
 	private LocalDateTime fechaModificacion;
 	private boolean estatus;
+	
 	/**
-	 * @return the idDisquera
+	 * @return the idSubgenero
 	 */
-	public Long getIdDisquera() {
-		return idDisquera;
+	public Long getIdSubgenero() {
+		return idSubgenero;
 	}
 	/**
-	 * @param idDisquera the idDisquera to set
+	 * @param idSubgenero the idSubgenero to set
 	 */
-	public void setIdDisquera(Long idDisquera) {
-		this.idDisquera = idDisquera;
+	public void setIdSubgenero(Long idSubgenero) {
+		this.idSubgenero = idSubgenero;
 	}
 	/**
 	 * @return the descripcion
@@ -52,6 +64,18 @@ public class Disquera {
 	 */
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
+	}
+	/**
+	 * @return the genero
+	 */
+	public Genero getGenero() {
+		return genero;
+	}
+	/**
+	 * @param genero the genero to set
+	 */
+	public void setGenero(Genero genero) {
+		this.genero = genero;
 	}
 	/**
 	 * @return the fechaCreacion
@@ -89,10 +113,11 @@ public class Disquera {
 	public void setEstatus(boolean estatus) {
 		this.estatus = estatus;
 	}
-	
 	@Override
 	public String toString() {
-		return "Disquera [idDisquera=" + idDisquera + ", descripcion=" + descripcion + ", fechaCreacion="
-				+ fechaCreacion + ", fechaModificacion=" + fechaModificacion + ", estatus=" + estatus + "]";
+		return "SubGenero [idSubgenero=" + idSubgenero + ", descripcion=" + descripcion + ", genero=" + genero
+				+ ", fechaCreacion=" + fechaCreacion + ", fechaModificacion=" + fechaModificacion + ", estatus="
+				+ estatus + "]";
 	}
+
 }

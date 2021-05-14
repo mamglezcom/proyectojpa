@@ -9,6 +9,8 @@
     	
     	<!--  define las clases que seran mapeadas al configurarse la conexion a la bbdd -->
     	<class>com.mamglez.proyectojpa.entity.Disquera</class>
+    	<class>com.mamglez.proyectojpa.entity.Genero</class>
+    	<class>com.mamglez.proyectojpa.entity.SubGenero</class>
     	
     	<properties>
     		<property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>

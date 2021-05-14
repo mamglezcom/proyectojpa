@@ -14,32 +14,31 @@ import javax.persistence.Table;
 
 /**
  * @author skype
- *representa el entity mapea tabla disquera
+ *
  */
 @Entity
-@Table(name="disquera")
-public class Disquera {
-	
+@Table(name="genero")
+public class Genero {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="idDisquera")
-	private Long idDisquera;
+	private Long idGenero;
 	@Column(name="descripcion")
 	private String descripcion;
 	private LocalDateTime fechaCreacion;
 	private LocalDateTime fechaModificacion;
 	private boolean estatus;
+	
 	/**
-	 * @return the idDisquera
+	 * @return the idGenero
 	 */
-	public Long getIdDisquera() {
-		return idDisquera;
+	public Long getIdGenero() {
+		return idGenero;
 	}
 	/**
-	 * @param idDisquera the idDisquera to set
+	 * @param idGenero the idGenero to set
 	 */
-	public void setIdDisquera(Long idDisquera) {
-		this.idDisquera = idDisquera;
+	public void setIdGenero(Long idGenero) {
+		this.idGenero = idGenero;
 	}
 	/**
 	 * @return the descripcion
@@ -89,10 +88,11 @@ public class Disquera {
 	public void setEstatus(boolean estatus) {
 		this.estatus = estatus;
 	}
-	
 	@Override
 	public String toString() {
-		return "Disquera [idDisquera=" + idDisquera + ", descripcion=" + descripcion + ", fechaCreacion="
-				+ fechaCreacion + ", fechaModificacion=" + fechaModificacion + ", estatus=" + estatus + "]";
+		return "Genero [idGenero=" + idGenero + ", descripcion=" + descripcion + ", fechaCreacion=" + fechaCreacion
+				+ ", fechaModificacion=" + fechaModificacion + ", estatus=" + estatus + "]";
 	}
+	
+
 }

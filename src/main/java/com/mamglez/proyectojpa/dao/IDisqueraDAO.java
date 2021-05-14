@@ -18,4 +18,7 @@ public interface IDisqueraDAO {
 	void eliminar(Long id);
 	List<Disquera> consultar();
 	Disquera consultarById(Long id);
+	Disquera consultarByDescripcionJPQL(String descripcion);
+	Disquera consultarByDescripcionNative(String descripcion);
+	
 }
